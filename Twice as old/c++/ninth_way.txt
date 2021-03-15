@@ -1,0 +1,7 @@
+int twice_as_old(int dad, int son) {
+  int res = 0;
+  int correction = 1;
+  if (2*son > dad) correction = -1;
+  for (; 2*son != dad; ++res, dad+=correction, son+=correction) ;
+  return res ;
+}

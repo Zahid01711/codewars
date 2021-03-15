@@ -1,0 +1,13 @@
+using System;
+
+namespace Solution
+{
+  public class TwiceAsOldSolution
+  {
+    public static int TwiceAsOld(int dadYears, int sonYears)
+    {
+      //Son has to be dadYears-sonYears old when the dad is double the age. Remove from that the current age of the son.
+      return Math.Abs(dadYears-(2*sonYears));
+    }
+  }
+}

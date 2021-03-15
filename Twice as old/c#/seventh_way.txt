@@ -1,0 +1,12 @@
+namespace Solution
+{
+  public class TwiceAsOldSolution
+  {
+    public static int TwiceAsOld(int dadYears, int sonYears)
+    {
+      int x = dadYears - sonYears;
+      if (2 * x > dadYears) return 2 * x - dadYears;
+      return dadYears - 2 * x; 
+    }
+  }
+}

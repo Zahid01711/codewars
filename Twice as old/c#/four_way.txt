@@ -1,0 +1,8 @@
+using System;
+namespace Solution
+{
+  public class TwiceAsOldSolution
+  {
+      public static int TwiceAsOld(int dadYears, int sonYears) => Math.Abs(2 * sonYears - dadYears);
+  }
+}
