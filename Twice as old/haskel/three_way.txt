@@ -1,0 +1,10 @@
+module TwiceAsOld where
+
+twiceAsOld fatherAge sonAge
+  | fatherAge == sonAge * 2 = 0
+  | fatherAge > sonAge * 2 = 1 + twiceAsOld (fatherAge - 1) sonAge
+  | fatherAge < sonAge * 2 = 1 + twiceAsOld (fatherAge + 1) sonAge
+
+
+twice_as_old :: Int -> Int -> Int
+twice_as_old = twiceAsOld

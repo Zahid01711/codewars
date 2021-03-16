@@ -1,0 +1,1 @@
+let twice_as_old dad son = abs (dad - 2 * son)

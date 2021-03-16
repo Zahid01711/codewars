@@ -1,0 +1,2 @@
+let twice_as_old a b = 
+(abs (a - 2 * b))

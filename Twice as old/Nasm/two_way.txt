@@ -1,0 +1,12 @@
+section .text
+global twice_as_old
+twice_as_old:              ; int twice_as_old(int dad, int son)
+                           ; input:  rdi = dad, rsi = son
+                           ; output: rax
+  shl esi, 1
+  sub edi, esi
+  mov eax, edi
+  sar edi, 31
+  xor eax, edi
+  sub eax, edi
+  ret

@@ -1,0 +1,2 @@
+fun twiceAsOld(dadYearsOld: Int, sonYearsOld: Int) =
+    if (dadYearsOld >= 2 * sonYearsOld) dadYearsOld - 2 * sonYearsOld else 2 * sonYearsOld - dadYearsOld

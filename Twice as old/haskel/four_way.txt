@@ -1,0 +1,6 @@
+module TwiceAsOld where
+
+add = (+)
+
+twice_as_old :: Int -> Int -> Int
+twice_as_old dad son = abs $ 2 * son - dad

@@ -1,0 +1,1 @@
+let twice_as_old dad son = Core.Int.abs (dad - 2 * son)

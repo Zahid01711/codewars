@@ -1,0 +1,6 @@
+class Solution {
+  public static function twiceAsOld(dad: Int, son: Int):Int {
+    var y : Int = dad-2*son;
+    return y<0 ? -y : y;
+  }
+}

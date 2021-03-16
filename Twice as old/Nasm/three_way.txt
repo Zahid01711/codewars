@@ -1,0 +1,8 @@
+section .text
+global twice_as_old
+extern abs
+
+twice_as_old:
+  shl rsi, 1
+  sub rdi, rsi
+  jmp $abs

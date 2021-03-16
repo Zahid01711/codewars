@@ -1,0 +1,10 @@
+#!/bin/sh
+
+dad_years_old=$1
+son_years_old=$2
+
+#implement me
+total=$((dad_years_old-2*son_years_old))
+echo "${total#-}"
+
+exit

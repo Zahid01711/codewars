@@ -1,0 +1,4 @@
+  fun twiceAsOld(dadYearsOld: Int, sonYearsOld: Int) = when (val result = dadYearsOld - (sonYearsOld * 2)) {
+        in 0..Int.MAX_VALUE -> result
+        else -> (sonYearsOld * 2) - dadYearsOld
+    }

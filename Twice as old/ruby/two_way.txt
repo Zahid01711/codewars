@@ -1,0 +1,7 @@
+object Sol { 
+
+    def twice_as_old(dad: Int, son: Int) = {
+      val res = dad - son - son
+      if (res < 0) res * -1 else res
+    }
+}

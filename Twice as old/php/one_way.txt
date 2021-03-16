@@ -1,0 +1,16 @@
+/**
+ * Twice as old
+ * 
+ * @description Сalculate how many years ago the father 
+ *              was twice as old as his son (or in how 
+ *              many years he will be twice as old).
+ * 
+ * @param int $dad_years_old current father's age
+ * @param int $son_years_old current age of his son
+ * @return int
+ * 
+ * @author akerayoui
+ */
+function twice_as_old( int $dad_years_old, int $son_years_old ) : int {
+    return abs( $dad_years_old - $son_years_old*2 ); 
+}

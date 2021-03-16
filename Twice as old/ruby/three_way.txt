@@ -1,0 +1,6 @@
+object Sol { 
+
+    def twice_as_old(dad: Int, son: Int) = {
+        return abs(dad - 2 * son);
+    }
+}
