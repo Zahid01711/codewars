@@ -1,0 +1,9 @@
+cycle = p => {
+  if (!(p%2 && p%5))
+    return -1;
+  let cycles = 1;
+  for (let x=10; x != 1; x = x*10%p) {
+    cycles++;
+  }
+  return cycles
+}

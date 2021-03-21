@@ -1,0 +1,6 @@
+function cycle(n) {
+  if (n % 2 == 0 || n % 5 == 0) return -1
+  let rem = 10 % n, cnt = 1
+  while (rem != 1) rem = rem * 10 % n, cnt++
+  return cnt
+}
