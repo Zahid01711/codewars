@@ -1,0 +1,29 @@
+import re
+operf = { '/': lambda x, y: x / y, '*': lambda x,y: x * y,  '-': lambda x,y: x - y, '+': lambda x,y: x + y}
+plusminus = {'+-': '-', '-+' : '-', '++': '+', '--': '+'}
+
+
+def calc(exp):
+
+    def rmpm(exp): # remove extra plus or minus sign
+        rep = re.compile('[+-][+-]')
+        b = rep.search(exp)
+        while b:
+            exp = rep.sub(plusminus[b.group(0)], exp, 1)
+            b = rep.search(exp)
+        return exp
+        
+        
+    exp = rmpm(exp.replace(" ", ""))
+    rep = re.compile('\(([^()]+)\)')
+    b = rep.search(exp)
+    while b:
+        exp = rmpm(rep.sub(str(calc(b.group(1))), exp, 1))
+        b = rep.search(exp)
+    for op in operf.keys():
+        rep = re.compile('((?<!\d)[+-]?[\d.]+(e[+-]?\d+)?)\\' + op + '([+-]?[0-9.]+(e[+-]?\d+)?)')
+        b = rep.search(exp)
+        while b:
+            exp = rmpm(rep.sub(str(operf[op](float(b.group(1)), float(b.group(3)))), exp ,1))
+            b = rep.search(exp)
+    return float(exp)
