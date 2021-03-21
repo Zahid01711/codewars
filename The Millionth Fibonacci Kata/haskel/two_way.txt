@@ -1,0 +1,11 @@
+module Fibonacci where
+
+fib :: Integer -> Integer
+fib n = (fib' 1 0 0 1 (abs n)) * (if n > 0 || odd n then 1 else -1)
+
+
+fib' :: Integer -> Integer -> Integer -> Integer -> Integer -> Integer
+fib' a b p q n
+  | n == 0 = b
+  | even n = fib' a b (p * p + q * q) (2 * p * q + q * q) (n `div` 2)
+  | otherwise = fib' (b * q + a * q + a * p) (b * p + a * q) p q (n - 1)

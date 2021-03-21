@@ -1,0 +1,17 @@
+module Fibonacci where
+
+
+data X = X Integer Integer Integer Integer
+
+instance Num X where
+  fromInteger 1 = X 0 1 1 0
+  X a1 b1 c1 d1 * X a2 b2 c2 d2 = X (a1 * a2 + b1 * c2) (a1 * b2 + b1 * d2) (c1 * a2 + d1 * c2) (c1 * b2 + d1 * d2)
+  (+) = undefined
+  abs = undefined
+  signum = undefined
+
+fib :: Integer -> Integer
+fib x = case X 1 1 1 0 ^ (abs x+1) of
+          X _ _ _ a -> a * sq
+            where sq | x >= 0 = 1
+                     | otherwise = if even x then -1 else 1
