@@ -1,15 +1,12 @@
-const sortedDigits = n => { let arr = n.toString().split(''); arr.sort((a, b) => b - a); return arr; };
-
-function nextBigger(n){
+function uniqueInOrder(it) {
+  var result = []
+  var last
   
-  let arr = sortedDigits(n);
-  let max = parseInt(arr.join(''), 10);
-  
-  for(var i = n + 1; i <= max; i++){
-    if(sortedDigits(i).every((x, j) => x === arr[j])){
-      return i;
+  for (var i = 0; i < it.length; i++) {
+    if (it[i] !== last) {
+      result.push(last = it[i])
     }
   }
   
-  return -1;
+  return result
 }
