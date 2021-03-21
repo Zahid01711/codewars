@@ -1,9 +1,0 @@
-function twiceAsOld(d, s) {
-    var ss = s * 2;
-      if ((d - ss) < 0){
-        return (d-ss) * -1;
-      }
-      else{
-        return d-ss;
-      }
-}
