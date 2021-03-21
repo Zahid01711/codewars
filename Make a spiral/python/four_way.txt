@@ -1,0 +1,48 @@
+d = [[[1,1,1,1,1],[0,0,0,0,1],[1,1,1,0,1],[1,0,0,0,1],[1,1,1,1,1]], # the 5*5 tool
+
+     [[1,1,1,1,1,1],[0,0,0,0,0,1],[1,1,1,1,0,1],[1,0,0,1,0,1],[1,0,0,0,0,1],[1,1,1,1,1,1]], # the 6*6 tool
+
+     [[1,1,1,1,1,1,1],[0,0,0,0,0,0,1],[1,1,1,1,1,0,1],[1,0,0,0,1,0,1],[1,0,1,1,1,0,1],[1,0,0,0,0,0,1],[1,1,1,1,1,1,1]], # the 7*7 tool
+
+     [[1,1,1,1,1,1,1,1],[0,0,0,0,0,0,0,1],[1,1,1,1,1,1,0,1],[1,0,0,0,0,1,0,1],[1,0,1,0,0,1,0,1],[1,0,1,1,1,1,0,1],[1,0,0,0,0,0,0,1],[1,1,1,1,1,1,1,1]]]
+    # the 8*8 tool
+    
+def spiralize(number):
+
+    array = [d[i-5] for i in range(5,9) if not(number-i)%4][0]
+    
+    while len(array)<number:
+        array = [[1,1]+array[0]+[0,1]]+list(map(lambda x: [1,0]+x+[0,1],array[1:]))#increasing the sides: [1,1]+[1,0,1,0,1]+[0,1] = [1,1,1,0,1,0,1,0,1] 
+        
+        array = [[1 for _ in range(len(array)+4)],[0 for _ in range(len(array)+3)]+[1]]+\
+                            array+[[1]+[0 for _ in range(len(array)+2)]+[1],[1 for _ in range(len(array)+4)]]
+        # adding bigger 'outer-shell' arrays: 2 to the top, 2 to the bottom
+    return array        
+
+#                                                 ALGORITHM:
+
+# The spirals with their length difference of 4 will always have the same structure:    ->
+#(number 4 is important because the next sprial with the max size you can make inside another sprial is n-4 long)
+#       1 1 1 1 1                                                                    1 1 1 1 1 1 1 1 1            
+#               1                                                                                    1
+#       1 1 1   1 so, this 5x5 matrix will be "the inner" part of a 9x9 matrix :     1 1 1 1 1 1 1   1
+#       1       1                                                                    1           1   1      
+#       1 1 1 1 1                                                                    1   1 1 1   1   1
+#                                                                                    1   1       1   1
+#                                                                                    1   1 1 1 1 1   1
+#                                                                                    1               1
+#            9x9                  "the frame" for 9x9                                    1 1 1 1 1 1 1 1 1 
+#     1 1 1 1 1 1 1 1 1            1 1 1 1 1 1 1 1 1
+#                     1                            1       the inner 5x5
+#     1 1 1 1 1 1 1   1            1 1    -------- 1 -----> 1 1 1 1 1
+#     1           1   1            1               1                1
+#     1   1 1 1   1   1     ==     1               1    +   1 1 1   1
+#     1   1       1   1            1               1        1       1
+#     1   1 1 1 1 1   1            1               1        1 1 1 1 1
+#     1               1            1               1
+#     1 1 1 1 1 1 1 1 1            1 1 1 1 1 1 1 1 1
+
+#        conclusion: so, by filtering the existing arrays, and adding new ones to them, in a while cycle, the result can be achieved
+
+
+
