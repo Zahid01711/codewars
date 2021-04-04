@@ -1,0 +1,20 @@
+def layer(spiral):
+    """Wraps one extra layer around an existing spiral."""
+    val = spiral[0][0]^1
+    top = (2+len(spiral[0])) * [val]
+    first = [val^1] + spiral[0] + [val]
+    other = [ [val] + row + [val] for row in spiral[1:] ]
+    return  [ top, first ] + other + [top]
+
+
+def spiralize(size):
+    """The snake is recursive."""
+    a = [[1]]
+    b = [[1, 1], [0,1]]
+    c = [ [1,1,1], [0,0,1], [1,1,1]]
+    d = [ [1,1,1,1], [0,0,0,1], [1,0,0,1], [1,1,1,1]]
+    
+    if size<5:
+        return [d, a, b, c][size%4] if size else []
+    
+    return layer(layer(spiralize(size-4)))
